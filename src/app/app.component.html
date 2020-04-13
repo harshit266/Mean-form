@@ -1,21 +1,122 @@
 <!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    Welcome to {{ title }}!
-  </h1>
-  <img width="300" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
-</div>
-<h2>Here are some links to help you start: </h2>
-<ul>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/tutorial">Tour of Heroes</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/cli">CLI Documentation</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://blog.angular.io/">Angular blog</a></h2>
-  </li>
-</ul>
 
+<form #f="ngForm" (ngSubmit)="submit(f)">
+School Parent Entity
+<br> 
+<input type="text" ngModel name="entity" placeholder="School Parent Entity" #entity="ngModel" required>
+<div *ngIf="!entity.touch && ! entity.valid">
+  Please enter Parent Entity
+</div>
+<br>
+Name
+<br> 
+<input type="text" ngModel name="name" placeholder="School Name" #name="ngModel" required>
+<div *ngIf="!name.touch && ! name.valid">
+  Please enter School name
+</div>
+
+<br>
+Established Year
+<br> 
+<input type="Date" ngModel name="year" placeholder="School Established Year" #year="ngModel" required>
+<div *ngIf="!year.touch && ! year.valid">
+  Please enter School establish year
+</div>
+
+<br>
+Approximate Number of Students
+<br> 
+<input type="number" ngModel name="students" placeholder="School Approx Student" #students="ngModel" required>
+<div *ngIf="!students.touch && ! students.valid">
+  The Field is required 
+</div>
+
+<br>
+Brand
+<br> 
+<input type="text" ngModel name="brand" placeholder="School Brand" #brand="ngModel" required>
+<div *ngIf="!brand.touch && ! brand.valid">
+  Please Enter School Brand 
+</div>
+
+<br>
+Email Address
+<br> 
+<input type="email" ngModel name="email" placeholder="Email Address" #email="ngModel" required>
+<div *ngIf="!email.touch && ! email.valid">
+  Please Enter email Address
+</div>
+
+<br>
+Principal Name
+<br> 
+<input type="text" ngModel name="principal" placeholder="School principal name" #principal="ngModel" required>
+<div *ngIf="!principal.touch && ! principal.valid">
+  Please enter principal name 
+</div>
+
+<br>
+Level Serviced 
+<br> 
+<input type="text" ngModel name="level" placeholder="School Type" #level="ngModel" required>
+<div *ngIf="!level.touch && ! level.valid">
+  The Field is required 
+</div>
+
+<br>
+Address
+<br> 
+<input type="text" ngModel name="address" placeholder="Address" #address="ngModel" required>
+<div *ngIf="!address.touch && ! address.valid">
+  The Field is required 
+</div>
+
+<br>
+State
+<br> 
+<!-- <input type="number" ngModel name="students" placeholder="School Approx Student" #students="ngModel" required> -->
+<input list="state" name="state"placeholder="Select State">
+  <datalist id="state">
+    <option value="Uttar Pradesh">
+    <option value="Uttrakhand">
+    <option value="Arunachal Pradesh">
+    <option value="Maharashtra">
+    <option value="Other">
+  </datalist>
+
+  <br>
+City
+<br> 
+<!-- <input type="number" ngModel name="students" placeholder="School Approx Student" #students="ngModel" required> -->
+<input list="city" name="city"placeholder="Select city">
+  <datalist id="city">
+    <option value="Saharanpur">
+    <option value="Muzzafarnagar">
+    <option value="Meerut">
+    <option value="Ghaziabad">
+    <option value="Other">
+  </datalist>
+
+  <br>
+Post Code
+<br> 
+<input type="number" ngModel name="code" placeholder="Enter Postcode" #code="ngModel" required>
+<div *ngIf="!code.touch && ! code.valid">
+  The Field is required 
+</div>
+
+<br>
+Number
+<br> 
+<input type="number" ngModel name="number" placeholder="Enter Number" #number="ngModel" required>
+<div *ngIf="!number.touch && ! number.valid">
+  The Field is required 
+</div>
+
+<label>
+
+    <input type="radio" ngModel name="clap" value="2"> I agree with the Terms and Conditions
+  </label>
+  <button (click)="final(f)" [disabled]="!f.valid">Submit</button>
+</form>
 <router-outlet></router-outlet>
